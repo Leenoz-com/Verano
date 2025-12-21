@@ -1,4 +1,4 @@
-[<img src="https://leenoz.com/assets_verano/logo.png" height="32px">](logo.svg)
+[<img src="https://leenoz.com/assets_verano/logo.png" height="64px">](logo.svg)
 
 # Title
 Verano Theme
