@@ -1,0 +1,224 @@
+{% import "twig/links.twig" as link %}
+<!DOCTYPE html>
+<html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- IF META -->{META}<!-- ENDIF -->
+    <title>{PAGE_TITLE}</title>
+
+    <!-- Font Awesome Library -->
+    <link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+
+    <!-- Theme CSS Files -->
+    <!-- INCLUDECSS css/verano-light.css -->
+
+    <script>
+      // <![CDATA[
+      var jump_page = "{{ lang_js('JUMP_PAGE') ~ lang_js('COLON') }}";
+      var on_page = '{{ CURRENT_PAGE }}';
+      var per_page = '{{ PER_PAGE }}';
+      var base_url = "{{ BASE_URL|e('js') }}";
+
+      /**
+       * Jump to page
+       */
+      function jumpto() {
+        var page = prompt(jump_page, on_page);
+
+        if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0) {
+          if (base_url.indexOf('?') == -1) {
+            document.location.href = base_url + '?start=' + ((page - 1) * per_page);
+          } else {
+            document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * per_page);
+          }
+        }
+      }
+
+      /**
+       * Mark/unmark checkboxes
+       * id = ID of parent container, name = name prefix, state = state [true/false]
+       */
+      function marklist(id, name, state) {
+        var parent = document.getElementById(id) || document[id];
+
+        if (!parent) {
+          return;
+        }
+
+        var rb = parent.getElementsByTagName('input');
+
+        for (var r = 0; r < rb.length; r++) {
+          if (rb[r].name.substr(0, name.length) == name && rb[r].disabled !== true) {
+            rb[r].checked = state;
+          }
+        }
+      }
+
+      /**
+       * Find a member
+       */
+      function find_username(url) {
+        popup(url, 760, 570, '_usersearch');
+        return false;
+      }
+
+      /**
+       * Window popup
+       */
+      function popup(url, width, height, name) {
+        if (!name) {
+          name = '_popup';
+        }
+
+        window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes, width=' + width);
+        return false;
+      }
+      // ]]>
+    </script>
+
+    <style>
+      .page-header .logo {
+        --logo: url({{ ADMIN_PATH }}images/phpbb_logo.svg);
+        -webkit-mask-image: var(--logo);
+        mask-image: var(--logo);
+      }
+    </style>
+
+    <!-- EVENT acp_overall_header_head_append -->
+    {$STYLESHEETS}
+    <!-- EVENT acp_overall_header_stylesheets_after -->
+  </head>
+
+  <body class="{S_CONTENT_DIRECTION} {BODY_CLASS} nojs layout-boxed tab-menu loading">
+
+    <!-- EVENT acp_overall_header_body_before -->
+      <div id="wrap">
+
+        <div id="page-body">
+          <!-- Topbar (Navigation) -->
+          <div id="navigation">
+            <div class="navigation-content">
+              <button type="button" id="collapse-menu" class="btn" title="{{ lang('ACP_VERANO_MENU_COLLAPSE') }}" aria-label="Toggle menu" aria-controls="tab-bar" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+              </button>
+              
+              <div id="page-header" class="page-header">
+                <a class="logo-link" href="{U_ADM_INDEX}">
+                  <span class="logo"></span>
+                </a>
+              </div>
+              
+              <div class="breadcrumb">
+                <!-- BEGIN l_block1 -->
+                <!-- BEGIN l_block2 -->
+                  <!-- IF l_block1.l_block2.S_SELECTED -->
+                    <span class="breadcrumb-item"><a href="{l_block1.l_block2.U_TITLE}">{l_block1.l_block2.L_TITLE}</a></span>
+                  <!-- ENDIF -->
+                <!-- BEGIN l_block3 -->
+                  <!-- IF l_block1.l_block2.l_block3.S_SELECTED -->
+                    <span class="breadcrumb-item"><a href="{l_block1.l_block2.l_block3.U_TITLE}">{l_block1.l_block2.l_block3.L_TITLE}</a></span>
+                  <!-- ENDIF -->
+                <!-- END l_block3 -->
+                <!-- END l_block2 -->
+                <!-- END l_block1 -->
+              </div>
+
+              <div class="navigation-icons">
+                <!-- Preview Board -->
+                <a id="index-preview" href="{U_INDEX}" class="btn" title="{L_FORUM_INDEX}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M17.9 17.39c-.26-.8-1.01-1.39-1.9-1.39h-1v-3a1 1 0 0 0-1-1H8v-2h2a1 1 0 0 0 1-1V7h2a2 2 0 0 0 2-2v-.41a7.984 7.984 0 0 1 2.9 12.8M11 19.93c-3.95-.49-7-3.85-7-7.93c0-.62.08-1.22.21-1.79L9 15v1a2 2 0 0 0 2 2m1-16A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+                </a>
+                <!-- End Preview -->
+
+                <!-- User -->
+                <div class="user-block btn" role="button" aria-haspopup="menu" aria-expanded="false" aria-controls="user-menu">
+                  <!-- IF U_AVATAR --><div class="user-avatar">{U_AVATAR}</div><!-- ELSE --><div class="user-avatar"><img src="./images/no_avatar.gif"></div><!-- ENDIF -->
+                  <div id="user-menu" class="user-info vo-dropdown-menu dropdown-end">
+                    <ul>
+                      <li class="user-avatar-head">
+                        <!-- IF U_AVATAR --><div class="user-avatar">{U_AVATAR}</div><!-- ELSE --><div class="user-avatar"><img src="./images/no_avatar.gif"></div><!-- ENDIF -->
+                        <p class="user-name">{USERNAME}</p>
+                      </li>
+                      <li class="dropdown-item">
+                        <a class="dropdown-link" href="{U_ADM_LOGOUT}">
+                          <span class="menu-title">{L_ADM_LOGOUT}</span>
+                        </a>
+                      </li>
+                      <li class="dropdown-item">
+                        <a class="dropdown-link" href="{U_LOGOUT}">
+                          <span class="menu-title">{L_LOGOUT}</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- End User -->
+              </div>
+            </div>
+          </div>
+          <!-- End Topbar -->
+      
+          <!-- Tabs -->
+          <div id="tab-bar" class="main-menu">
+            <div id="menu">
+              <ul id="menu-content">
+                <!-- BEGIN l_block1 -->
+                  <li class="tab">
+                    <a href="{l_block1.U_TITLE}" class="main-tab dropdown-link<!-- IF l_block1.S_SELECTED --> active<!-- ENDIF -->">
+                      <span class="menu-title">{l_block1.L_TITLE}</span>
+                      <i class="icon fa fa-angle-{S_CONTENT_FLOW_END}"></i>
+                    </a>
+                    <!-- IF .l_block1.l_block2 -->
+                    <div class="vo-dropdown-menu" role="menu">
+                      <ul>
+                        <!-- BEGIN l_block2 -->
+                        <!-- IF .l_block1.l_block2.l_block3 -->
+                        <li class="dropdown-item">
+                          <a class="dropdown-link dropdown-toggle<!-- IF l_block1.l_block2.S_SELECTED --> active<!-- ENDIF -->" href="{{ link.change_icat(l_block1.l_block2.U_TITLE, l_block1.ID, l_block1.l_block2.IS_DUPLICATE)|trim }}">
+                            <span class="menu-title">{l_block1.l_block2.L_TITLE}</span>
+                            <i class="icon fa fa-angle-{S_CONTENT_FLOW_END}"></i>
+                          </a>
+                          <div class="vo-dropdown-menu dropdown-submenu" role="menu">
+                            <ul>
+                              <!-- BEGIN l_block3 -->
+                              <li class="dropdown-item">
+                                <a class="dropdown-link<!-- IF l_block1.l_block2.l_block3.S_SELECTED --> active<!-- ENDIF -->" href="{{ link.change_icat(l_block1.l_block2.l_block3.U_TITLE, l_block1.ID, l_block1.l_block2.l_block3.IS_DUPLICATE)|trim }}">
+                                  <span class="menu-title">{l_block1.l_block2.l_block3.L_TITLE}</span>
+                                </a>
+                              </li>
+                              <!-- END l_block3 -->
+                            </ul>
+                          </div>
+                        </li>
+                        <!-- ELSEIF l_block1.l_block2.MODE != 'main' and l_block1.l_block2.MODE != 'intro' -->
+                        <li class="dropdown-item">
+                          <a class="dropdown-link<!-- IF l_block1.l_block2.S_SELECTED --> active<!-- ENDIF -->" href="{{ link.change_icat(l_block1.l_block2.U_TITLE, l_block1.ID, l_block1.l_block2.IS_DUPLICATE)|trim }}">
+                            <span class="menu-title">{l_block1.l_block2.L_TITLE}</span>
+                          </a>
+                        </li>
+                        <!-- ENDIF -->
+                        <!-- END l_block2 -->
+                      </ul>
+                    </div>
+                    <!-- ENDIF -->
+                  </li>
+                <!-- END l_block1 -->
+              </ul>
+            </div>
+          </div>
+          <!-- End Tabs -->
+
+          <!-- Page Content -->
+          <div id="acp">
+            <div id="content">
+              <div id="main" class="main">
+
+                {% if CONTAINER_EXCEPTION !== false %}
+                <div class="errorbox">
+                  <p>{{ lang('CONTAINER_EXCEPTION') }}</p><br />
+                  <p>{{ lang('EXCEPTION') }}{{ lang('COLON') }} {{ CONTAINER_EXCEPTION.getMessage() }}</p>
+                  <pre>{{ CONTAINER_EXCEPTION.getTraceAsString() }}</pre>
+                </div>
+                {% endif %}

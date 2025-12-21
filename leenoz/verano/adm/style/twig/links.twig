@@ -1,0 +1,18 @@
+{% macro change_icat(link, new_icat, is_duplicate) %}
+  {% if 'icat=' in link and is_duplicate %}
+    {% set icat_part = link|split('icat=')[1] %}
+
+    {% if '&' in icat_part %}
+      {% set icat_old = icat_part|split('&')[0] %}
+    {% else %}
+      {% set icat_old = icat_part %}
+    {% endif %}
+    
+    {% set key = 'icat=' ~ icat_old %}
+    {% set value = 'icat=' ~ new_icat %}
+
+    {{ link|replace({(key): value}) }}
+  {% else %}
+    {{ link }}
+  {% endif %}
+{% endmacro %}

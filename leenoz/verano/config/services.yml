@@ -1,0 +1,11 @@
+services:
+  leenoz.verano.listener:
+    class: leenoz\verano\event\main_listener
+    arguments:
+      - "@user"
+      - "@auth"
+      - "@template"
+      - "@template.twig.environment"
+      - "@filesystem"
+    tags:
+      - { name: event.listener }
