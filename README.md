@@ -36,7 +36,6 @@ For support and feedback, email support@leenoz.com.
 - Customize Menu Icons
 - Change the theme fonts
 - Permissions System
-- Custom Copyright
 - Custom CSS & JS
 
 #### Read More:
