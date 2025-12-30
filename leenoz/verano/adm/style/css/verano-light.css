@@ -121,7 +121,7 @@ strong {
 hr {
   margin: 0.75rem 0;
   display: block;
-  border-top: 1px dashed #e5e7eb;
+  border-top: 1px dashed #e5e7eb !important;
 }
 
 button {
@@ -173,6 +173,10 @@ a:hover {
 
 a#maincontent, a#acl, a#assigned_to {
   display: block;
+}
+
+a#maincontent + p {
+  margin: 0;
 }
 
 /* List Items Style ----------------------------------- */
@@ -418,6 +422,7 @@ li {
   background-color: transparent;
   padding: 0.5rem;
   color: #fff;
+  box-shadow: none;
 }
 
 #navigation .navigation-content .btn:hover {
@@ -1128,12 +1133,13 @@ select:focus {
   outline: none;
 }
 
-input.langvalue, textarea.langvalue {
+input.langvalue, textarea {
   width: 90%;
 }
 
 .radio, 
-.checkbox, 
+.checkbox,
+.check,
 input[type="radio"]:not([class]), 
 input[type="checkbox"]:not([class]) {
   display: inline-block;
@@ -1162,7 +1168,8 @@ input[type="radio"] {
 }
 
 .radio:checked, 
-.checkbox:checked, 
+.checkbox:checked,
+.check:checked,
 input[type="radio"]:not([class]):checked, 
 input[type="checkbox"]:not([class]):checked {
   border-color: #1a57da;
@@ -1172,7 +1179,8 @@ input[type="checkbox"]:not([class]):checked {
 }
 
 .radio:hover, 
-.checkbox:hover, 
+.checkbox:hover,
+.check:hover,
 input[type="radio"]:not([class]):hover, 
 input[type="checkbox"]:not([class]):hover {
   cursor: pointer;
@@ -1180,7 +1188,8 @@ input[type="checkbox"]:not([class]):hover {
 }
 
 .radio:focus, 
-.checkbox:focus, 
+.checkbox:focus,
+.check:focus,
 input[type="radio"]:not([class]):focus, 
 input[type="checkbox"]:not([class]):focus {
   outline: 2px solid #1a57da;
@@ -1188,7 +1197,8 @@ input[type="checkbox"]:not([class]):focus {
 }
 
 .radio:disabled, 
-.checkbox:disabled, 
+.checkbox:disabled,
+.check:disabled,
 input[type="radio"]:not([class]):disabled, 
 input[type="checkbox"]:not([class]):disabled {
   pointer-events: none;
@@ -1197,12 +1207,14 @@ input[type="checkbox"]:not([class]):disabled {
 
 .radio:checked, 
 .checkbox:checked,
+.check:checked,
 input[type="checkbox"]:not([class]):checked {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
 }
 
 .radio:indeterminate, 
 .checkbox:indeterminate,
+.check:indeterminate,
 input[type="checkbox"]:not([class]):indeterminate {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");
 }
@@ -1220,10 +1232,12 @@ fieldset:is(.quick, .display-options) textarea {
 
 table select, 
 table .radio, 
-table .checkbox, 
+table .checkbox,
+table .check,
 table input[type="checkbox"]:not([class]),
 legend .radio, 
-legend .checkbox, 
+legend .checkbox,
+legend .check,
 legend input[type="checkbox"]:not([class]) {
   border-color: #e5e7eb;
   background-color: #ffffff;
@@ -1353,6 +1367,7 @@ input[type="file"]::file-selector-button {
   border-inline-end: 1px solid #e5e7eb;
   background-color: #f3f4f6;
   padding: 0.75rem 1rem;
+  color: #1f2937;
 }
 
 input[type="file"]::file-selector-button,
