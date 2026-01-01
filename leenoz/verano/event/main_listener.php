@@ -1,5 +1,15 @@
 <?php
 
+/**
+*
+* Verano Theme extension for the phpBB Forum Software package.
+*
+* @author Leenoz <support@leenoz.com>
+* @copyright (c) Leenoz <https://leenoz.com>
+* @license GNU General Public License, version 2 (GPL-2.0-only)
+*
+*/
+
 namespace leenoz\verano\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
