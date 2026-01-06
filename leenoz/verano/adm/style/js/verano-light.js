@@ -200,6 +200,10 @@
 
     // Remove loading state
     $('body').removeClass('loading');
+
+    // Verano has been loaded
+    window.verano = window.verano || {};
+    window.verano.loaded = true;
   });
 
 })(jQuery, window, document);

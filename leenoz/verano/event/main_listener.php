@@ -68,7 +68,7 @@ class main_listener implements EventSubscriberInterface
   public static function getSubscribedEvents()
   {
     return [
-      'core.adm_page_header' => 'load_style_settings_data',
+      'core.adm_page_header' => 'load_style_settings_data'
     ];
   }
 
@@ -79,8 +79,10 @@ class main_listener implements EventSubscriberInterface
   {
     global $phpbb_root_path, $phpbb_admin_path;
 
+    $verano_path = $phpbb_root_path . 'ext/leenoz/verano/adm/style';
+
     $loader = $this->twig->getLoader();
-    $paths = [ $phpbb_root_path . 'ext/leenoz/verano/adm/style' ];
+    $paths = [ $verano_path ];
   
     $absolute_path = $this->filesystem->realpath($phpbb_root_path);
 
@@ -92,7 +94,7 @@ class main_listener implements EventSubscriberInterface
     $this->template->set_custom_style([
       [
         'name' => 'adm',
-        'ext_path' => 'adm/style/',
+        'ext_path' => 'adm/style/'
       ],
     ], $paths);
 
@@ -102,6 +104,7 @@ class main_listener implements EventSubscriberInterface
     // Send the data to the ACP template
     $this->template->assign_vars([
       'ADMIN_PATH' => $phpbb_admin_path,
+      'VERANO_PATH' => $verano_path,
       'U_AVATAR' => $avatar
     ]);
   }

@@ -3,6 +3,7 @@
 /**
 *
 * Verano Theme extension for the phpBB Forum Software package.
+* Language: Simplified-Chinese [zh_cmn_hans]
 *
 * @author Leenoz <support@leenoz.com>
 * @copyright (c) Leenoz <https://leenoz.com>
@@ -19,8 +20,8 @@ if (empty($lang) || !is_array($lang)) {
 }
 
 $lang = array_merge($lang, [
-  'ACP_VERANO_EXT'  => 'Verano Theme',
-  'ACP_VERANO_MENU_COLLAPSE' => 'Collapse/Expand Menu',
-  'ACP_VERANO_COPYRIGHT' => 'Designed by',
-  'ACP_VERANO_ERROR_DIALOG' => 'Verano JS files were not loaded correctly.'
+  'ACP_VERANO_EXT'  => 'Verano 主题',
+  'ACP_VERANO_MENU_COLLAPSE' => '折叠/展开菜单',
+  'ACP_VERANO_COPYRIGHT' => '设计者：',
+  'ACP_VERANO_ERROR_DIALOG' => 'Verano 的 JS 文件未能正确加载。'
 ]);

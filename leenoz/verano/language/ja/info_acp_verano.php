@@ -3,6 +3,7 @@
 /**
 *
 * Verano Theme extension for the phpBB Forum Software package.
+* Language: Japanese [ja]
 *
 * @author Leenoz <support@leenoz.com>
 * @copyright (c) Leenoz <https://leenoz.com>
@@ -19,8 +20,8 @@ if (empty($lang) || !is_array($lang)) {
 }
 
 $lang = array_merge($lang, [
-  'ACP_VERANO_EXT'  => 'Verano Theme',
-  'ACP_VERANO_MENU_COLLAPSE' => 'Collapse/Expand Menu',
-  'ACP_VERANO_COPYRIGHT' => 'Designed by',
-  'ACP_VERANO_ERROR_DIALOG' => 'Verano JS files were not loaded correctly.'
+  'ACP_VERANO_EXT'  => 'Verano テーマ',
+  'ACP_VERANO_MENU_COLLAPSE' => 'メニューの折りたたみ / 展開',
+  'ACP_VERANO_COPYRIGHT' => 'デザイン：',
+  'ACP_VERANO_ERROR_DIALOG' => 'Verano の JS ファイルが正しく読み込まれませんでした。'
 ]);
