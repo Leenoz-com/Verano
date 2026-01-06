@@ -67,7 +67,7 @@ body.loading {
   background-color: #f3f4f6;
   opacity: 1;
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  animation: loading 0.8s ease-out forwards;
+  animation: loading 0.5s ease-out forwards;
 }
 
 @keyframes loading {
@@ -340,12 +340,15 @@ li {
   text-wrap: nowrap;
 }
 
+body.loading #menu .tab:hover > .vo-dropdown-menu,
+body.loading #menu .dropdown-item:hover > .dropdown-submenu,
 .vo-dropdown-menu.opened {
   display: block;
   padding-top: 0.5rem;
   animation: open_menu linear 150ms;
 }
 
+body.loading #menu .dropdown-item:hover > .dropdown-submenu,
 .vo-dropdown-menu.dropdown-submenu.opened {
   padding: 0 0.75rem;
 }
