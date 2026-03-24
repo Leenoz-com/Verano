@@ -12,16 +12,16 @@
 */
 
 if (!defined('IN_PHPBB')) {
-  exit;
+	exit;
 }
 
 if (empty($lang) || !is_array($lang)) {
-  $lang = [];
+	$lang = [];
 }
 
 $lang = array_merge($lang, [
-  'ACP_VERANO_EXT'  => 'Тема Verano',
-  'ACP_VERANO_MENU_COLLAPSE' => 'Свернуть/Развернуть меню',
-  'ACP_VERANO_COPYRIGHT' => 'Дизайн от',
-  'ACP_VERANO_ERROR_DIALOG' => 'Файлы JS Verano не были загружены корректно.'
+	'ACP_VERANO_MENU_TOGGLE' => 'Переключить меню',
+	'ACP_VERANO_MENU_COLLAPSE' => 'Свернуть/Развернуть меню',
+	'ACP_VERANO_COPYRIGHT' => 'Дизайн от',
+	'ACP_VERANO_ERROR_DIALOG' => 'Файлы JS Verano не были загружены корректно.'
 ]);

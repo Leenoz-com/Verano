@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- IF META -->{META}<!-- ENDIF -->
-    <title>{PAGE_TITLE}</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- IF META -->{META}<!-- ENDIF -->
+		<title>{PAGE_TITLE}</title>
 
-    <!-- Font Awesome Library -->
-    <link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+		<!-- Font Awesome Library -->
+		<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
 
-    <!-- Theme CSS Files -->
-    <link href="{VERANO_PATH}/css/verano-light.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+		<!-- Theme CSS Files -->
+		<link href="{VERANO_PATH}/css/verano-light.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
 
 		<script>
-      // <![CDATA[
-      var jump_page = "{{ lang_js('JUMP_PAGE') ~ lang_js('COLON') }}";
-      var on_page = '{{ CURRENT_PAGE }}';
-      var per_page = '{{ PER_PAGE }}';
-      var base_url = "{{ BASE_URL|e('js') }}";
+			// <![CDATA[
+			var jump_page = "{{ lang_js('JUMP_PAGE') ~ lang_js('COLON') }}";
+			var on_page = '{{ CURRENT_PAGE }}';
+			var per_page = '{{ PER_PAGE }}';
+			var base_url = "{{ BASE_URL|e('js') }}";
 
-      /**
-       * Jump to page
-       */
-      function jumpto() {
-        var page = prompt(jump_page, on_page);
+			/**
+			 * Jump to page
+			 */
+			function jumpto() {
+				var page = prompt(jump_page, on_page);
 
-        if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0) {
-          if (base_url.indexOf('?') == -1) {
-            document.location.href = base_url + '?start=' + ((page - 1) * per_page);
-          } else {
-            document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * per_page);
-          }
-        }
-      }
+				if (page !== null && !isNaN(page) && page == Math.floor(page) && page > 0) {
+					if (base_url.indexOf('?') == -1) {
+						document.location.href = base_url + '?start=' + ((page - 1) * per_page);
+					} else {
+						document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + ((page - 1) * per_page);
+					}
+				}
+			}
 
-      /**
-       * Mark/unmark checkboxes
-       * id = ID of parent container, name = name prefix, state = state [true/false]
-       */
-      function marklist(id, name, state) {
-        var parent = document.getElementById(id) || document[id];
+			/**
+			 * Mark/unmark checkboxes
+			 * id = ID of parent container, name = name prefix, state = state [true/false]
+			 */
+			function marklist(id, name, state) {
+				var parent = document.getElementById(id) || document[id];
 
-        if (!parent) {
-          return;
-        }
+				if (!parent) {
+					return;
+				}
 
-        var rb = parent.getElementsByTagName('input');
+				var rb = parent.getElementsByTagName('input');
 
-        for (var r = 0; r < rb.length; r++) {
-          if (rb[r].name.substr(0, name.length) == name && rb[r].disabled !== true) {
-            rb[r].checked = state;
-          }
-        }
-      }
+				for (var r = 0; r < rb.length; r++) {
+					if (rb[r].name.substr(0, name.length) == name && rb[r].disabled !== true) {
+						rb[r].checked = state;
+					}
+				}
+			}
 
-      /**
-       * Find a member
-       */
-      function find_username(url) {
-        popup(url, 760, 570, '_usersearch');
-        return false;
-      }
+			/**
+			 * Find a member
+			 */
+			function find_username(url) {
+				popup(url, 760, 570, '_usersearch');
+				return false;
+			}
 
-      /**
-       * Window popup
-       */
-      function popup(url, width, height, name) {
-        if (!name) {
-          name = '_popup';
-        }
+			/**
+			 * Window popup
+			 */
+			function popup(url, width, height, name) {
+				if (!name) {
+					name = '_popup';
+				}
 
-        window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes, width=' + width);
-        return false;
-      }
-    	// ]]>
-    </script>
+				window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes, width=' + width);
+				return false;
+			}
+			// ]]>
+		</script>
 
-    <style>
-      .page-header .logo {
-        --logo: url({{ ADMIN_PATH }}images/phpbb_logo.svg);
-        -webkit-mask-image: var(--logo);
-        mask-image: var(--logo);
-      }
-    </style>
+		<style>
+			.page-header .logo {
+				--logo: url({{ ADMIN_PATH }}images/phpbb_logo.svg);
+				-webkit-mask-image: var(--logo);
+				mask-image: var(--logo);
+			}
+		</style>
 
 		<!-- EVENT acp_simple_header_head_append -->
 		{$STYLESHEETS}

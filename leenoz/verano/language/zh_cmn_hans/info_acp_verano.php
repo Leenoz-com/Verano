@@ -12,16 +12,16 @@
 */
 
 if (!defined('IN_PHPBB')) {
-  exit;
+	exit;
 }
 
 if (empty($lang) || !is_array($lang)) {
-  $lang = [];
+	$lang = [];
 }
 
 $lang = array_merge($lang, [
-  'ACP_VERANO_EXT'  => 'Verano 主题',
-  'ACP_VERANO_MENU_COLLAPSE' => '折叠/展开菜单',
-  'ACP_VERANO_COPYRIGHT' => '设计者：',
-  'ACP_VERANO_ERROR_DIALOG' => 'Verano 的 JS 文件未能正确加载。'
+	'ACP_VERANO_MENU_TOGGLE' => '切换菜单',
+	'ACP_VERANO_MENU_COLLAPSE' => '折叠/展开菜单',
+	'ACP_VERANO_COPYRIGHT' => '设计者：',
+	'ACP_VERANO_ERROR_DIALOG' => 'Verano 的 JS 文件未能正确加载。'
 ]);

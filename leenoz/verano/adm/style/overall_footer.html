@@ -1,70 +1,70 @@
-              </div><!-- /#main -->
-			      </div><!-- /#content -->
+							</div><!-- /#main -->
+						</div><!-- /#content -->
 
-            <div id="page-footer">
-              <div class="copyright">
-                <!-- IF S_COPYRIGHT_HTML -->
-                  {CREDIT_LINE}
-                  <div>{L_ACP_VERANO_COPYRIGHT} <a href="https://leenoz.com/">Leenoz</a></div>
-                  <!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
-                <!-- ENDIF -->
+						<div id="page-footer">
+							<div class="copyright">
+								<!-- IF S_COPYRIGHT_HTML -->
+									{CREDIT_LINE}
+									<div>{L_ACP_VERANO_COPYRIGHT} <a href="https://leenoz.com/">Leenoz</a></div>
+									<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
+								<!-- ENDIF -->
 
-                <!-- IF DEBUG_OUTPUT -->
-                  <!-- IF S_COPYRIGHT_HTML --><br /><!-- ENDIF -->
-                  {DEBUG_OUTPUT}
-                <!-- ENDIF -->
-              </div>
-            </div>
+								<!-- IF DEBUG_OUTPUT -->
+									<!-- IF S_COPYRIGHT_HTML --><br /><!-- ENDIF -->
+									{DEBUG_OUTPUT}
+								<!-- ENDIF -->
+							</div>
+						</div>
 
-		      </div><!-- /#acp -->
-	      </div><!-- /#page-body -->
+					</div><!-- /#acp -->
+				</div><!-- /#page-body -->
 
-        <div>
-          <div id="darkenwrapper" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
-            <div id="darken">&nbsp;</div>
-          </div>
-          <div id="loading_indicator"></div>
+				<div>
+					<div id="darkenwrapper" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
+						<div id="darken">&nbsp;</div>
+					</div>
+					<div id="loading_indicator"></div>
 
-          <div id="phpbb_alert" class="phpbb_alert" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
-            <a href="#" class="alert_close"></a>
-            <h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
-          </div>
-          <div id="phpbb_confirm" class="phpbb_alert">
-            <a href="#" class="alert_close"></a>
-            <div class="alert_text"></div>
-          </div>
-        </div>
-      </div>
+					<div id="phpbb_alert" class="phpbb_alert" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+						<a href="#" class="alert_close"></a>
+						<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+					</div>
+					<div id="phpbb_confirm" class="phpbb_alert">
+						<a href="#" class="alert_close"></a>
+						<div class="alert_text"></div>
+					</div>
+				</div>
+			</div>
 
-      <div id="vo-error" role="alert" onclick="$(this).fadeOut();">
-        <div class="vo-error-body">
-          <div class="vo-error-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
-            </svg>
-          </div>
-          <div class="vo-error-content">{L_ACP_VERANO_ERROR_DIALOG}</div>
-        </div>
-      </div>
+			<div id="vo-error" role="alert" onclick="$(this).fadeOut();">
+				<div class="vo-error-body">
+					<div class="vo-error-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
+						</svg>
+					</div>
+					<div class="vo-error-content">{L_ACP_VERANO_ERROR_DIALOG}</div>
+				</div>
+			</div>
 
-      <script>
-        setTimeout(() => {
-          if (!window.verano?.loaded) {
-            document.getElementById('vo-error').classList.add('show-error');
-          }
-        }, 5000);
-      </script>
+			<script>
+				setTimeout(() => {
+					if (!window.verano || !window.verano.loaded) {
+						document.getElementById('vo-error').classList.add('show-error');
+					}
+				}, 5000);
+			</script>
 
-      <script src="{T_JQUERY_LINK}"></script>
-      <!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('\x3Cscript src="{T_ASSETS_PATH}/javascript/jquery-3.7.1.min.js?assets_version={T_ASSETS_VERSION}">\x3C/script>');</script><!-- ENDIF -->
-      <script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
-  	  <script src="{VERANO_PATH}/js/verano-light.js?assets_version={T_ASSETS_VERSION}"></script>
-      <!-- INCLUDEJS ajax.js -->
-      <!-- INCLUDEJS admin.js -->
+			<script src="{T_JQUERY_LINK}"></script>
+			<!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('\x3Cscript src="{T_ASSETS_PATH}/javascript/jquery-3.7.1.min.js?assets_version={T_ASSETS_VERSION}">\x3C/script>');</script><!-- ENDIF -->
+			<script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+			<script src="{VERANO_PATH}/js/verano-light.js?assets_version={T_ASSETS_VERSION}"></script>
+			<!-- INCLUDEJS ajax.js -->
+			<!-- INCLUDEJS admin.js -->
 
-      <!-- EVENT acp_overall_footer_after -->
-      {$SCRIPTS}
+			<!-- EVENT acp_overall_footer_after -->
+			{$SCRIPTS}
 
-      <!-- EVENT acp_overall_footer_body_after -->
-  </body>
+			<!-- EVENT acp_overall_footer_body_after -->
+	</body>
 </html>
